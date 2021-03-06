@@ -106,7 +106,7 @@
     </sensor>
   </gazebo>
 
- <gazebo>
+ <!-- <gazebo>
     <plugin name="mpo_700_controller" filename="libgazebo_ros_planar_move.so">
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
@@ -114,7 +114,7 @@
       <odometryRate>150.0</odometryRate>
       <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
-  </gazebo>
+  </gazebo> -->
 
   <!-- camera -->
   <!-->

@@ -5,16 +5,16 @@
   <arg name="world_name_global" default="worlds/empty.world"/>
   
   <!--To launch RVIZ set the value to true-->
-  <arg name="rviz" value="false"/>
+  <!-- <arg name="rviz" default="true"/> -->
 
   <!--To move robot using teleop_keyboard-->
-  <arg name="software_joystick" value="true"/>
+  <arg name="software_joystick" default="true"/>
 
 <!---=================================================================================================================================================================-->
 
   <!--Gazebo Variables--> 
   <arg name="world" default="empty"/> 
-  <arg name="paused" default="false"/>
+  <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
@@ -48,10 +48,16 @@
 
  <!-- Wheel controller -->
   <rosparam file="$(find neo_simulation)/config/controller/mpo_700_wheel_controller.yaml" command="load"/>
-  <node name="wheel_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn mpo_700_caster_front_left_controller mpo_700_caster_front_right_controller mpo_700_caster_back_left_controller 
-  mpo_700_caster_back_right_controller  mpo_700_wheel_front_left_controller
-  mpo_700_wheel_front_right_controller   mpo_700_wheel_back_left_controller 
-  mpo_700_wheel_back_right_controller " respawn="false" output="screen"/>
+  <node name="wheel_controller_spawner" pkg="controller_manager" type="controller_manager" 
+  args="spawn 
+        mpo_700_caster_front_left_controller 
+        mpo_700_caster_front_right_controller 
+        mpo_700_caster_back_left_controller 
+        mpo_700_caster_back_right_controller  
+        mpo_700_wheel_front_left_controller
+        mpo_700_wheel_front_right_controller   
+        mpo_700_wheel_back_left_controller 
+        mpo_700_wheel_back_right_controller" respawn="false" output="screen"/>
 
     <!-- Launching kinematics node -->
 
@@ -74,5 +80,10 @@
  </group>
 
 <!---=================================================================================================================================================================-->
+
+  <!-- RVIZ -->
+  <!-- <group if="$(arg rviz)">-
+      <include file="$(find neo_simulation)/launch/$(arg robot_type)/$(arg robot_type)_rviz.launch"/>
+  </group> -->
 
 </launch>
