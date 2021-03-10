@@ -6,6 +6,7 @@
   <!--"basic" = robot model + scan data-->
   <!--"navigation" = robot model + scan data + navigation data-->
   <arg name="config" value="navigation"/>
+  <!-- <arg name="config" default="basic"/> -->
 
 
 <!---=================================================================================================================================================================-->
