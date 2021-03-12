@@ -189,6 +189,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+
   <transmission name="mpo_700_wheel_front_left">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="mpo_700_wheel_front_left_joint">
@@ -198,6 +199,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  
   <transmission name="mpo_700_caster_back_left">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="mpo_700_caster_back_left_joint">
@@ -207,6 +209,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  
   <transmission name="mpo_700_wheel_back_right">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="mpo_700_wheel_back_right_joint">
@@ -216,6 +219,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  
   <transmission name="mpo_700_caster_back_right">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="mpo_700_caster_back_right_joint">
@@ -225,6 +229,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  
   <transmission name="mpo_700_wheel_front_right">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="mpo_700_wheel_front_right_joint">
@@ -234,6 +239,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  
   <transmission name="mpo_700_caster_front_right">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="mpo_700_caster_front_right_joint">
@@ -243,6 +249,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  
   <transmission name="mpo_700_wheel_back_left">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="mpo_700_wheel_back_left_joint">
@@ -252,4 +259,5 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  
 </robot>
