@@ -3,48 +3,46 @@
 
   <!--set to the required robot type and world-->
   <arg name="robot_type" default="mpo_700"/>
-  <!-- <arg name="robot_world" default="neo_workshop.world"/> -->
-  <arg name="robot_world" default="neo_track2.world"/>
+
+  <!-- <arg name="robot_world" default="worlds/empty"/> -->
+  <arg name="robot_world" default="neo_workshop"/>
+  <!-- <arg name="robot_world" default="neo_track1"/> -->
+  <!-- <arg name="robot_world" default="neo_track2"/> -->
   <!--arg name="world_name" value=""/-->
-
-  <!--To launch RVIZ set the value to true-->
-  <arg name="rviz" default="true"/>
-
 
   <!--To launch move base set the value to true-->
   <arg name="autonomous_navigation" default="true"/>
 
+  <!-- Map name for navigation -->
+  <!-- <arg name="MAP_NAME" default="$(optenv MAP_NAME)"/> -->
+  <arg name="MAP_NAME" default="$(arg robot_world)"/>
+  <!-- <arg name="MAP_NAME" default="neo_track1"/> -->
+
   <!--To move robot using teleop_keyboard-->
-  <arg name="software_joystick" default="true"/>
+  <arg name="software_joystick" default="false"/>
+
+  <!--To launch RVIZ set the value to true-->
+  <arg name="rviz" default="true"/>
 
   <!---=================================================================================================================================================================-->
 
   <!-- Basic Simulation -->
   <include file="$(find neo_simulation)/launch/$(arg robot_type)/$(arg robot_type)_simulation_basic.launch">
-    <arg name="world_name_global" value="$(find neo_simulation)/worlds/$(arg robot_world)"/> 
+    <arg name="world_name_global" value="$(arg robot_world).world"/> 
     <arg name="software_joystick" value="$(arg software_joystick)"/>
+    <arg name="rviz" value="$(arg rviz)"/>
   </include>
 
   <!-- Autonomous Navigation -->
   <group if="$(arg autonomous_navigation)">
-    <include file="$(find neo_simulation)/launch/$(arg robot_type)/$(arg robot_type)_autonomous_navigation.launch"/>
+    <include file="$(find neo_simulation)/launch/$(arg robot_type)/$(arg robot_type)_autonomous_navigation.launch">
+      <arg name="MAP_NAME" value="$(arg MAP_NAME)"/> 
+    </include>
   </group>
 
   <!-- RVIZ -->
-  <group if="$(arg rviz)">
+  <!-- <group if="$(arg rviz)">
     <include file="$(find neo_simulation)/launch/$(arg robot_type)/$(arg robot_type)_rviz.launch"/>
-  </group>
-
-  <!---=================================================================================================================================================================-->
-  <!--To launch gmapping to create a map-->
-  <arg name="gmapping" default="false"/> 
-
-  <!--To launch amcl-->
-  <!--NOTE: Do not forget to configure the correct Map for AMCL-->
-  <!--NOTE: Use file neo_simulation/config/mpo_700/amcl/mpo_700_amcl.launch-->
-  <arg name="amcl" default="true"/>
-
-  <!--To launch move base-->
-  <arg name="move_base" default="false"/>
+  </group> -->
 
 </launch>

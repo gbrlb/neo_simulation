@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 
 <launch>
+  <arg name="MAP_NAME" default="neo_workshop"/>
 
-  <arg name="env_map" default="$(find neo_simulation)/maps/neo_track2.yaml" />
+  <arg name="env_map" default="$(find neo_simulation)/maps/$(arg MAP_NAME).yaml" />
 
   <!-- MAP SERVER -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg env_map)">
